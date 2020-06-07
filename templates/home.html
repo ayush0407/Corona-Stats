@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Corona Stats</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container" >
+    <h1>Coronavirus Tracker Application</h1>
+    <p>This application lists the current number of cases reported across the globe</p>
+
+    <div class="jumbotron"  >
+        <h1 class="display-4"   >{{ tc }}</h1>
+        <p class="lead" >Total cases reported as of today</p>
+        <hr class="my-4">
+        <p>
+            <span>New cases reported since previous day:</span>
+            <span >{{ pdc }}</span>
+        </p>
+
+    </div>
+    <table class="table">
+        <tr>
+            <th>Country</th>
+            <th>State</th>
+            <th>Latest Count</th>
+            <th>Changes since prev days</th>
+
+        </tr>
+
+        {% for row in locationData %}
+<tr>
+        <td>{{ row.country }}</td>
+        <td>{{ row.state }}</td>
+<td>{{ row.latestCount }}</td>
+<td>{{ row.prevDayCount }}</td>
+ </tr>
+        {% endfor %}
+
+    </table>
+
+</div>
+
+
+</body>
+</html>
